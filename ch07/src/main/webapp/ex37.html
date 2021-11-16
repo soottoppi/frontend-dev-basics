@@ -1,0 +1,41 @@
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script type="text/javascript" src="jquery/jquery-3.6.0.js"></script>
+<script>
+	/* jQuery Plug In
+	 == _jQuery.prototype.hello
+	 */
+	$.fn.hello = function() {
+		console.log("Hello World");
+		console.log(this.length);
+		console.log(this.attr('title'));
+		return this;
+	}
+	
+	$.fn.flash = function() {
+		var _this = this;
+		var isBlink = true;
+		setInterval(function(){
+			_this.css('background-color', isBlink ? '#f00' : '#EFEFEF');
+			isBlink = !isBlink;
+		}, 1000);
+	}
+	
+	$(function() {
+		$('h1').flash();
+		$("#btn").click(function() {
+			$(this)
+				.hello()
+				.flash();
+		});
+	});
+</script>
+</head>
+<body>
+	<h1>jQuery Plug In</h1>
+
+	<div style="width: 200px; margin: 50px auto">
+		<button id="btn" title="click me">click me</button>
+	</div>
+</body>
+</html>

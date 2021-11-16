@@ -1,0 +1,38 @@
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script type="text/javascript" src="jquery/jquery-3.6.0.js"></script>
+<script>
+	$(function() {
+		setTimeout(function() {
+			//$("h2 a").attr("href", "http://www.douzone.com");
+			//$("h2 a").attr("target", "_blank");
+			//$("h2 a").attr("title", "우리회사 좋은회사");
+			//$("h2 a").css("font-size", "0.75em");
+			
+			// 함수 체인
+			//$("h2 a")
+			//	.attr("href", "http://www.douzone.com")
+			//	.attr("target", "_blank")
+			//	.attr("title", "우리회사 좋은회사")
+			//	.css("font-size", "0.75em");
+			
+			// 좋은 방법 (객체로 사용)
+			$("h2 a")
+				.attr({
+					href: "http://www.douzone.com",
+					target: "_blank",
+					title: "우리회사 좋은회사"
+				})
+				.css("font-size", "0.75em");
+		}, 1000);
+	});
+</script>
+</head>
+<body>
+	<h1>DOM 조작 API - attr()</h1>
+	
+	<h2>
+		<a href="">우리회사</a>
+	</h2>
+</body>
+</html>

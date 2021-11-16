@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+var child = window.open("popup.html", "popup", "width=200, height=100");
+
+// 팝업창
+var widthScreen = screen.width;
+var heightScreen = screen.height;
+console.log(widthScreen + ":" + heightScreen);
+
+setTimeout(function(){
+	child.moveTo(0,0);
+	child.resizeTo(widthScreen, heightScreen);
+	setInterval(function(){
+		// 0.1초 마다 가운데를 기준으로 사이즈를 줄이기
+		child.resizeBy(-20, -20);
+		child.moveBy(10, 10);
+	}, 100);
+}, 2000);
+	
+</script>
+</head>
+<body>
+	<h1>BOM(Browser Object Model)</h1>
+	<h2>2. screen 객체</h2>
+	
+</body>
+</html>

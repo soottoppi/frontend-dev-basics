@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>sample1</title>
+<link href='image-viewer.css' type='text/css' rel="stylesheet" />
+<script type="text/javascript" src="jquery/jquery-3.6.0.js"></script>
+<script type="text/javascript" src="image-viewer.js"></script>
+<!-- 
+ImageViewer.init();
+ -->
+<script type="text/javascript">
+	var images = [ 
+		"구콰:Chrysanthemum.jpg", 
+		"사뫅:Desert.jpg",
+		"SOOKUCK:Hydrangeas.jpg", 
+		"해퐈뤼~:Jellyfish.jpg", 
+		"KOALA:Koala.jpg",
+		"둥뒈:Lighthouse.jpg", 
+		"펭귄!:Penguins.jpg", 
+		"튜우우우울립:Tulips.jpg"
+	];
+
+	$(function() {
+		start = false,
+		intervalId = null,
+		changeImage = function(){
+			// 랜덤 변수 
+			var result = Math.floor(Math.random() * (images.length)); // 0~7
+			console.log(result);
+			$("#img").attr({
+				src : "images/" + $(images)[result].split(":")[1],
+				alt : $(images)[result].split(":")[0]
+			});
+		},
+		$("#btn-change").click(function() {
+			changeImage();
+		}),
+		$("#btn-slideshow").click(function(){
+			if(this.start){
+				this.start = false;
+				clearInterval(intervalId);
+				$("#btn-slideshow").text("슬라이드쇼 시작");	
+			} else {
+				this.start = true;
+				intervalId  = setInterval(changeImage, 500);
+				$("#btn-slideshow").text("슬라이드쇼 멈춤");	
+			}
+			
+		});
+	});
+	
+</script>
+</head>
+<body>
+	<div>
+		<div class="image-viewer">
+			<div class="buttons">
+				<button id="btn-change">이미지 변경</button>
+				<button id="btn-slideshow">슬라이드쇼 시작</button>
+			</div>
+			<div>
+				<img id="img" src="images/Desert.jpg" alt="사막" />
+			</div>
+		</div>
+	</div>
+</body>
+</html>
