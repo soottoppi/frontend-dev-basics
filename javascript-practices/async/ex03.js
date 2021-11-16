@@ -6,6 +6,7 @@ const ex03 = async function (param) {
         console.log(res);
     } catch (err) {
         console.error(err);
+        console.log("test");
     }
 };
 
