@@ -21,6 +21,7 @@ ex01("param-data", function (error, res) {
     }
 });
 
+// test02: fail
 ex01("param-error", function (error, res) {
     if (error) {
         console.error(error);
